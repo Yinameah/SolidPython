@@ -11,7 +11,8 @@
 
 import os 
 import sys
-import regex as re
+#import regex as re
+import re
 import inspect
 import subprocess
 import tempfile
@@ -377,6 +378,11 @@ class OpenSCADObject(object):
                        '!': '!'}
 
         self.modifier = string_vals.get(m.lower(), '')
+        return self
+
+    def d(self):
+        self.set_modifier('#')
+
         return self
 
     def _render(self, render_holes=False):
